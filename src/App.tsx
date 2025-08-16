@@ -40,6 +40,7 @@ import ProfileEdit from "./pages/ProfileEdit";
 import PasswordReset from "./pages/PasswordReset";
 import AdminDashboard from "./pages/AdminDashboard";
 import AffiliateMarketing from "./pages/AffiliateMarketing";
+import StartEarning from "./pages/StartEarning";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -121,6 +122,7 @@ const App = () => (
             </AdminProtectedRoute>
           } />
           <Route path="/affiliate-marketing" element={<AffiliateMarketing />} />
+          <Route path="/start-earning" element={<StartEarning />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -78,10 +78,12 @@ const AffiliateMarketing = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
             Partner with Zinda and earn substantial commissions by referring customers to our marketplace
           </p>
-          <Button size="lg" variant="accent" className="text-lg px-8 py-3">
-            <Globe className="h-5 w-5 mr-2" />
-            Start Earning Today
-            <ArrowRight className="h-5 w-5 ml-2" />
+          <Button size="lg" variant="accent" className="text-lg px-8 py-3" asChild>
+            <Link to="/start-earning">
+              <Globe className="h-5 w-5 mr-2" />
+              Start Earning Today
+              <ArrowRight className="h-5 w-5 ml-2" />
+            </Link>
           </Button>
         </div>
       </section>
@@ -251,9 +253,11 @@ const AffiliateMarketing = () => {
             Join our affiliate program today and start earning commissions from day one
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="accent" className="text-lg px-8 py-3">
-              <TrendingUp className="h-5 w-5 mr-2" />
-              Apply Now
+            <Button size="lg" variant="accent" className="text-lg px-8 py-3" asChild>
+              <Link to="/start-earning">
+                <TrendingUp className="h-5 w-5 mr-2" />
+                Apply Now
+              </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary">
               <Star className="h-5 w-5 mr-2" />
