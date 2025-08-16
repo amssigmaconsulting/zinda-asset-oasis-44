@@ -7,7 +7,7 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.12 (cd3cf9e)"
@@ -591,21 +591,21 @@ export type Database = {
       get_agent_dashboard_analytics: {
         Args: { agent_user_id: string }
         Returns: {
-          total_listings: number
           active_listings: number
-          total_views: number
-          total_inquiries: number
           listings_this_month: number
+          total_inquiries: number
+          total_listings: number
+          total_views: number
         }[]
       }
       get_listing_analytics: {
         Args: { listing_id_param: string }
         Returns: {
+          daily_views: Json
           total_views: number
           unique_viewers: number
-          views_this_week: number
           views_this_month: number
-          daily_views: Json
+          views_this_week: number
         }[]
       }
       get_listing_loves: {
@@ -617,13 +617,13 @@ export type Database = {
       }
       has_role: {
         Args: {
-          _user_id: string
           _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
         }
         Returns: boolean
       }
       has_sufficient_credits: {
-        Args: { user_id_param: string; required_credits: number }
+        Args: { required_credits: number; user_id_param: string }
         Returns: boolean
       }
       is_admin: {
@@ -632,11 +632,11 @@ export type Database = {
       }
       update_user_credits: {
         Args: {
-          user_id_param: string
           amount_param: number
-          transaction_type_param: string
           description_param?: string
           stripe_session_id_param?: string
+          transaction_type_param: string
+          user_id_param: string
         }
         Returns: undefined
       }
