@@ -105,7 +105,7 @@ const StartEarning = () => {
             Start Your <span className="text-yellow-300">Affiliate Journey</span>
           </h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join our affiliate program and start earning substantial commissions by referring customers to Zinda
+            Join our affiliate program and start earning substantial commissions from sales of property and automobile you make and also from the sales from your syndicate
           </p>
           <Badge variant="secondary" className="text-lg px-4 py-2">
             <Star className="h-4 w-4 mr-2" />
