@@ -80,7 +80,7 @@ const StartEarning = () => {
     {
       icon: <DollarSign className="h-6 w-6 text-primary" />,
       title: "Up to 15% Commission",
-      description: "Earn competitive rates on every successful referral"
+      description: "Earn competitive rates on every successful sale"
     },
     {
       icon: <Target className="h-6 w-6 text-primary" />,
@@ -244,30 +244,30 @@ const StartEarning = () => {
                   />
                 </div>
 
-                {/* Referral Methods */}
+                {/* Sales Methods */}
                 <div className="space-y-2">
-                  <Label htmlFor="referralMethods">How do you plan to promote Zinda?</Label>
+                  <Label htmlFor="referralMethods">How do you plan to sell properties and automobiles?</Label>
                   <Textarea
                     id="referralMethods"
-                    placeholder="Describe your promotional strategies (e.g., content marketing, social media, email campaigns)"
+                    placeholder="Describe your sales strategies (e.g., direct sales, social media marketing, networking)"
                     value={formData.referralMethods}
                     onChange={(e) => handleInputChange("referralMethods", e.target.value)}
                     className="min-h-[100px]"
                   />
                 </div>
 
-                {/* Expected Referrals */}
+                {/* Expected Sales */}
                 <div className="space-y-2">
-                  <Label htmlFor="expectedReferrals">Expected Monthly Referrals</Label>
+                  <Label htmlFor="expectedReferrals">Expected Monthly Sales</Label>
                   <Select onValueChange={(value) => handleInputChange("expectedReferrals", value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select expected monthly referrals" />
+                      <SelectValue placeholder="Select expected monthly sales" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="1-5">1-5 referrals</SelectItem>
-                      <SelectItem value="6-15">6-15 referrals</SelectItem>
-                      <SelectItem value="16-30">16-30 referrals</SelectItem>
-                      <SelectItem value="30+">30+ referrals</SelectItem>
+                      <SelectItem value="1-5">1-5 sales</SelectItem>
+                      <SelectItem value="6-15">6-15 sales</SelectItem>
+                      <SelectItem value="16-30">16-30 sales</SelectItem>
+                      <SelectItem value="30+">30+ sales</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -325,7 +325,7 @@ const StartEarning = () => {
                 3
               </div>
               <h3 className="text-xl font-semibold">Start Earning</h3>
-              <p className="text-muted-foreground">Get your referral links and start earning commissions</p>
+              <p className="text-muted-foreground">Get your sales tools and start earning commissions</p>
             </div>
           </div>
         </div>
