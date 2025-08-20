@@ -41,6 +41,8 @@ import PasswordReset from "./pages/PasswordReset";
 import AdminDashboard from "./pages/AdminDashboard";
 import AffiliateMarketing from "./pages/AffiliateMarketing";
 import StartEarning from "./pages/StartEarning";
+import AffiliateLogin from "./pages/AffiliateLogin";
+import AffiliateDashboard from "./pages/AffiliateDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -123,6 +125,12 @@ const App = () => (
           } />
           <Route path="/affiliate-marketing" element={<AffiliateMarketing />} />
           <Route path="/start-earning" element={<StartEarning />} />
+          <Route path="/affiliate-login" element={<AffiliateLogin />} />
+          <Route path="/affiliate-dashboard" element={
+            <ProtectedRoute redirectTo="/affiliate-login">
+              <AffiliateDashboard />
+            </ProtectedRoute>
+          } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -140,10 +140,18 @@ const StartEarning = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Join our affiliate program and start earning substantial commissions from sales of property and automobile you make and also from the sales from your syndicate
           </p>
-          <Badge variant="secondary" className="text-lg px-4 py-2">
-            <Star className="h-4 w-4 mr-2" />
-            24-Hour Application Review
-          </Badge>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Badge variant="secondary" className="text-lg px-4 py-2">
+              <Star className="h-4 w-4 mr-2" />
+              24-Hour Application Review
+            </Badge>
+            <Button variant="outline" size="lg" asChild className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <a href="/affiliate-login">
+                Already Approved? Login
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
