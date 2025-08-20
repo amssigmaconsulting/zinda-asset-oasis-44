@@ -168,26 +168,30 @@ const AffiliateMarketing = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <Card className="relative overflow-hidden">
               <CardHeader className="text-center">
-                <Badge variant="secondary" className="w-fit mx-auto">Starter</Badge>
-                <CardTitle className="text-2xl mt-4">5%</CardTitle>
+                <Badge variant="secondary" className="w-fit mx-auto">Syndicate Member</Badge>
+                <CardTitle className="text-2xl mt-4">2.5%</CardTitle>
                 <p className="text-muted-foreground">Commission Rate</p>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    0-10 referrals/month
+                    For all referrals
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Basic support
+                    Network benefits
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
                     Marketing materials
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Syndicate support
                   </li>
                 </ul>
               </CardContent>
@@ -196,15 +200,15 @@ const AffiliateMarketing = () => {
             <Card className="relative overflow-hidden border-primary">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-primary"></div>
               <CardHeader className="text-center">
-                <Badge className="w-fit mx-auto">Professional</Badge>
-                <CardTitle className="text-2xl mt-4">10%</CardTitle>
+                <Badge className="w-fit mx-auto">Property Seller</Badge>
+                <CardTitle className="text-2xl mt-4">5%</CardTitle>
                 <p className="text-muted-foreground">Commission Rate</p>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    11-25 referrals/month
+                    For direct property sales
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -214,29 +218,9 @@ const AffiliateMarketing = () => {
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
                     Advanced analytics
                   </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="relative overflow-hidden">
-              <CardHeader className="text-center">
-                <Badge variant="secondary" className="w-fit mx-auto">Elite</Badge>
-                <CardTitle className="text-2xl mt-4">15%</CardTitle>
-                <p className="text-muted-foreground">Commission Rate</p>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    25+ referrals/month
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Dedicated manager
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Custom solutions
+                    Seller tools & resources
                   </li>
                 </ul>
               </CardContent>
