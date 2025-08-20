@@ -22,6 +22,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const StartEarning = () => {
   const { toast } = useToast();
@@ -41,7 +42,7 @@ const StartEarning = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -54,26 +55,58 @@ const StartEarning = () => {
       return;
     }
 
-    // Here you would normally submit to your backend
-    console.log("Affiliate application submitted:", formData);
-    
-    toast({
-      title: "Application Submitted!",
-      description: "We'll review your application and get back to you within 24 hours.",
-    });
+    try {
+      // Submit to database
+      const { error } = await supabase
+        .from('affiliate_applications')
+        .insert({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          website: formData.website || null,
+          experience: formData.experience || null,
+          audience: formData.audience || null,
+          referral_methods: formData.referralMethods || null,
+          expected_referrals: formData.expectedReferrals || null,
+          additional_info: formData.additionalInfo || null,
+        });
 
-    // Reset form
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      website: "",
-      experience: "",
-      audience: "",
-      referralMethods: "",
-      expectedReferrals: "",
-      additionalInfo: ""
-    });
+      if (error) {
+        console.error('Error submitting application:', error);
+        toast({
+          title: "Submission Failed",
+          description: "There was an error submitting your application. Please try again.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      toast({
+        title: "Application Submitted!",
+        description: "We'll review your application and get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        website: "",
+        experience: "",
+        audience: "",
+        referralMethods: "",
+        expectedReferrals: "",
+        additionalInfo: ""
+      });
+
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const benefits = [

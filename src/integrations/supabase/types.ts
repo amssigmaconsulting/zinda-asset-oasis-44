@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      affiliate_applications: {
+        Row: {
+          additional_info: string | null
+          audience: string | null
+          created_at: string
+          email: string
+          expected_referrals: string | null
+          experience: string | null
+          full_name: string
+          id: string
+          phone: string
+          referral_methods: string | null
+          status: string
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          additional_info?: string | null
+          audience?: string | null
+          created_at?: string
+          email: string
+          expected_referrals?: string | null
+          experience?: string | null
+          full_name: string
+          id?: string
+          phone: string
+          referral_methods?: string | null
+          status?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          additional_info?: string | null
+          audience?: string | null
+          created_at?: string
+          email?: string
+          expected_referrals?: string | null
+          experience?: string | null
+          full_name?: string
+          id?: string
+          phone?: string
+          referral_methods?: string | null
+          status?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       agent_profiles: {
         Row: {
           bio: string | null
