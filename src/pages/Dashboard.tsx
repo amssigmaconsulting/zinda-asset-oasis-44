@@ -14,6 +14,7 @@ import { Session, User as SupabaseUser } from '@supabase/supabase-js';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CreditManagement from "@/components/CreditManagement";
+import AgentNetwork from "@/components/AgentNetwork";
 
 interface UserProfile {
   id: string;
@@ -232,14 +233,16 @@ const Dashboard = () => {
   };
 
   const recentActivity = [
-    { id: 1, action: "Profile created", item: "Welcome to Zinda!", time: "Today" },
+    { id: 1, action: "Joined MLS Network", item: "Welcome to the MLS platform!", time: "Today" },
+    { id: 2, action: "Profile Verified", item: "Agent status activated", time: "Today" },
+    { id: 3, action: "MLS Access Granted", item: "Full platform access enabled", time: "Today" },
   ];
 
   const stats = [
-    { title: "Available Credits", value: credits.toString(), icon: Coins, change: "Ready to use" },
-    { title: "Total Listings", value: activeListings.length.toString(), icon: Package, change: "All time" },
-    { title: "Active Listings", value: activeListings.filter(l => l.status === 'active').length.toString(), icon: TrendingUp, change: "Currently active" },
-    { title: "Account Status", value: "Active", icon: MessageCircle, change: "Ready to sell" }
+    { title: "MLS Credits", value: credits.toString(), icon: Coins, change: "Available balance" },
+    { title: "Total Listings", value: activeListings.length.toString(), icon: Package, change: "In MLS database" },
+    { title: "Active Listings", value: activeListings.filter(l => l.status === 'active').length.toString(), icon: TrendingUp, change: "Live on MLS" },
+    { title: "MLS Status", value: "Verified Agent", icon: MessageCircle, change: "Full MLS access" }
   ];
 
   if (isLoading) {
@@ -264,9 +267,9 @@ const Dashboard = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-foreground">
-              Welcome back{userProfile?.first_name ? `, ${userProfile.first_name}` : ''}!
+              MLS Agent Dashboard{userProfile?.first_name ? ` - ${userProfile.first_name}` : ''}
             </h1>
-            <p className="text-muted-foreground mt-1">Manage your listings and upload property images.</p>
+            <p className="text-muted-foreground mt-1">Manage your MLS listings, collaborate with agents, and access market insights.</p>
           </div>
           <div className="flex gap-2">
             <Button asChild className="bg-primary hover:bg-primary/90">
@@ -309,11 +312,12 @@ const Dashboard = () => {
         </div>
 
         <Tabs defaultValue="listings" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="listings">My Listings</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-5">
+            <TabsTrigger value="listings">MLS Listings</TabsTrigger>
+            <TabsTrigger value="network">Agent Network</TabsTrigger>
             <TabsTrigger value="credits">Credits</TabsTrigger>
-            <TabsTrigger value="activity">Recent Activity</TabsTrigger>
-            <TabsTrigger value="profile">Profile Settings</TabsTrigger>
+            <TabsTrigger value="activity">MLS Activity</TabsTrigger>
+            <TabsTrigger value="profile">Agent Profile</TabsTrigger>
           </TabsList>
 
           <TabsContent value="listings" className="space-y-4">
@@ -388,6 +392,10 @@ const Dashboard = () => {
             )}
           </TabsContent>
 
+          <TabsContent value="network" className="space-y-4">
+            <AgentNetwork />
+          </TabsContent>
+
           <TabsContent value="credits" className="space-y-4">
             <CreditManagement />
           </TabsContent>
@@ -395,8 +403,8 @@ const Dashboard = () => {
           <TabsContent value="activity" className="space-y-4">
             <Card className="border-border">
               <CardHeader>
-                <CardTitle className="text-foreground">Recent Activity</CardTitle>
-                <CardDescription>Your latest account activities and updates</CardDescription>
+                <CardTitle className="text-foreground">MLS Activity Feed</CardTitle>
+                <CardDescription>Your recent MLS activities and platform updates</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -419,9 +427,9 @@ const Dashboard = () => {
               <CardHeader>
                 <CardTitle className="text-foreground flex items-center">
                   <User className="h-5 w-5 mr-2" />
-                  Profile Settings
+                  MLS Agent Profile
                 </CardTitle>
-                <CardDescription>Manage your account settings and upload a profile picture</CardDescription>
+                <CardDescription>Manage your MLS agent profile and verification status</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center space-x-4">

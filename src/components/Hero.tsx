@@ -15,15 +15,15 @@ const Hero = () => {
       
       <div className="relative z-10 container mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 animate-fade-in leading-tight">
-          Find Your Perfect
+          Your Premier
           <span className="block bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent">
-            Real Asset
+            MLS Platform
           </span>
         </h2>
         
         <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto animate-fade-in px-2">
-          Discover quality real estate and automobile opportunities with Zinda. From luxury homes to excellent vehicles, 
-          we connect you with the best investment assets.
+          Access the most comprehensive Multiple Listing Service platform. Connect with verified agents, 
+          share listings, and collaborate with real estate professionals nationwide.
         </p>
         
         <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 max-w-4xl mx-auto shadow-elegant animate-scale-in">
@@ -32,9 +32,11 @@ const Hero = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               <div className="sm:col-span-1">
                 <select className="w-full h-10 sm:h-12 px-3 sm:px-4 border border-input rounded-md text-sm sm:text-base md:text-lg bg-background">
-                  <option>Asset Type</option>
-                  <option>Real Estate</option>
-                  <option>Automobiles</option>
+                  <option>Property Type</option>
+                  <option>Residential</option>
+                  <option>Commercial</option>
+                  <option>Land</option>
+                  <option>Multi-Family</option>
                 </select>
               </div>
               <div className="sm:col-span-1 lg:col-span-2 relative">
@@ -46,13 +48,12 @@ const Hero = () => {
               </div>
               <div className="sm:col-span-2 lg:col-span-1">
                 <select className="w-full h-10 sm:h-12 px-3 sm:px-4 border border-input rounded-md text-sm sm:text-base md:text-lg bg-background">
-                  <option>Category</option>
-                  <option>Residential Property</option>
-                  <option>Commercial Property</option>
-                  <option>Luxury Cars</option>
-                  <option>SUVs</option>
-                  <option>Electric Vehicles</option>
-                  <option>Classic Cars</option>
+                  <option>Listing Status</option>
+                  <option>Active Listings</option>
+                  <option>Coming Soon</option>
+                  <option>Under Contract</option>
+                  <option>Sold</option>
+                  <option>Off Market</option>
                 </select>
               </div>
             </div>
@@ -71,7 +72,7 @@ const Hero = () => {
               </div>
               <Button variant="hero" size="lg" className="h-10 sm:h-12 px-4 sm:px-8 text-sm sm:text-base">
                 <Search className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                Search
+                Search MLS
               </Button>
             </div>
           </div>
