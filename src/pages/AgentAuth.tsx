@@ -178,7 +178,7 @@ const AgentAuth = () => {
         </Link>
 
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4">Agent/Dealer Portal</h1>
+          <h1 className="text-4xl font-bold mb-4">Agent/Broker Portal</h1>
           <p className="text-muted-foreground text-lg">
             Join our network of professional agents
           </p>

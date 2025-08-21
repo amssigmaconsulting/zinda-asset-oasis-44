@@ -129,7 +129,7 @@ const Header = () => {
                             className="block text-foreground hover:text-primary transition-colors py-3 px-2 text-lg touch-manipulation"
                             onClick={() => setIsOpen(false)}
                           >
-                            Agent/Dealer Portal
+                            Agent/Broker Portal
                           </Link>
                         </>
                       )}
@@ -173,7 +173,7 @@ const Header = () => {
               ) : (
                 <>
                   <Button variant="outline" className="hidden md:flex text-sm" asChild>
-                    <Link to="/agent-auth">Agent/Dealer Portal</Link>
+                    <Link to="/agent-auth">Agent/Broker Portal</Link>
                   </Button>
                   <Button variant="outline" className="hidden md:flex text-sm" asChild>
                     <Link to="/sell">Sign In</Link>

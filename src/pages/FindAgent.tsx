@@ -57,7 +57,7 @@ const FindAgent = () => {
     {
       icon: Car,
       title: "Automobile Agents",
-      description: "Find trusted automobile dealers and sales professionals",
+      description: "Find trusted automobile brokers and sales professionals",
       color: "from-orange-500 to-red-500",
       category: "automobile-agents"
     },

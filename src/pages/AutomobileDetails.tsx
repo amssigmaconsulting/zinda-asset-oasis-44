@@ -54,7 +54,7 @@ const AutomobileDetails = () => {
         name: "AutoMax Lagos",
         phone: "+234 803 123 4567",
         email: "sales@automaxlagos.com",
-        type: "Dealer",
+        type: "Broker",
         rating: 4.8,
         location: "Victoria Island, Lagos",
         verified: true
@@ -111,7 +111,7 @@ const AutomobileDetails = () => {
         name: "Premium Cars Abuja",
         phone: "+234 809 876 5432",
         email: "info@premiumcarsabuja.com",
-        type: "Dealer",
+        type: "Broker",
         rating: 4.6,
         location: "Central Business District, Abuja",
         verified: false
@@ -168,7 +168,7 @@ const AutomobileDetails = () => {
         name: "Luxury Auto Gallery",
         phone: "+234 803 567 8901",
         email: "sales@luxuryautogallery.com",
-        type: "Dealer",
+        type: "Broker",
         rating: 4.9,
         location: "GRA Phase 2, Port Harcourt",
         verified: true

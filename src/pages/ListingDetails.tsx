@@ -108,19 +108,19 @@ const ListingDetails = () => {
           if (agentProfile) {
             setAgent(agentProfile);
           } else {
-            // Try dealer profile
-            const { data: dealerProfile } = await supabase
-              .from('dealer_profiles')
+            // Try broker profile
+            const { data: brokerProfile } = await supabase
+              .from('broker_profiles')
               .select('contact_person, email, phone, is_verified')
               .eq('user_id', propertyListing.user_id)
               .single();
 
-            if (dealerProfile) {
+            if (brokerProfile) {
               setAgent({
-                name: dealerProfile.contact_person,
-                email: dealerProfile.email,
-                phone: dealerProfile.phone,
-                is_verified: dealerProfile.is_verified
+                name: brokerProfile.contact_person,
+                email: brokerProfile.email,
+                phone: brokerProfile.phone,
+                is_verified: brokerProfile.is_verified
               });
             } else {
               // Try company profile

@@ -30,7 +30,7 @@ type AgentProfile = {
   verification_notes: string | null;
 };
 
-type DealerProfile = {
+type BrokerProfile = {
   user_id: string;
   company_name: string;
   contact_person: string;
@@ -57,7 +57,7 @@ type CompanyProfile = {
 const AdminDashboard = () => {
   const [userProfiles, setUserProfiles] = useState<UserProfile[]>([]);
   const [agentProfiles, setAgentProfiles] = useState<AgentProfile[]>([]);
-  const [dealerProfiles, setDealerProfiles] = useState<DealerProfile[]>([]);
+  const [brokerProfiles, setBrokerProfiles] = useState<BrokerProfile[]>([]);
   const [companyProfiles, setCompanyProfiles] = useState<CompanyProfile[]>([]);
   const [loading, setLoading] = useState(true);
   const [verificationNotes, setVerificationNotes] = useState<{[key: string]: string}>({});
@@ -72,21 +72,21 @@ const AdminDashboard = () => {
       setLoading(true);
       
       // Fetch all profile types
-      const [usersRes, agentsRes, dealersRes, companiesRes] = await Promise.all([
+      const [usersRes, agentsRes, brokersRes, companiesRes] = await Promise.all([
         supabase.from('profiles').select('*').order('created_at', { ascending: false }),
         supabase.from('agent_profiles').select('*').order('created_at', { ascending: false }),
-        supabase.from('dealer_profiles').select('*').order('created_at', { ascending: false }),
+        supabase.from('broker_profiles').select('*').order('created_at', { ascending: false }),
         supabase.from('company_profiles').select('*').order('created_at', { ascending: false })
       ]);
 
       if (usersRes.error) throw usersRes.error;
       if (agentsRes.error) throw agentsRes.error;
-      if (dealersRes.error) throw dealersRes.error;
+      if (brokersRes.error) throw brokersRes.error;
       if (companiesRes.error) throw companiesRes.error;
 
       setUserProfiles(usersRes.data || []);
       setAgentProfiles(agentsRes.data || []);
-      setDealerProfiles(dealersRes.data || []);
+      setBrokerProfiles(brokersRes.data || []);
       setCompanyProfiles(companiesRes.data || []);
     } catch (error: any) {
       toast({
@@ -151,10 +151,10 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleVerifyDealer = async (userId: string) => {
+  const handleVerifyBroker = async (userId: string) => {
     try {
       const notes = verificationNotes[userId] || '';
-      const { error } = await supabase.rpc('verify_dealer_profile', {
+      const { error } = await supabase.rpc('verify_broker_profile', {
         target_user_id: userId,
         verification_notes_param: notes
       });
@@ -163,7 +163,7 @@ const AdminDashboard = () => {
 
       toast({
         title: "Success",
-        description: "Dealer verified successfully",
+        description: "Broker verified successfully",
       });
 
       fetchAllProfiles();
@@ -230,10 +230,10 @@ const AdminDashboard = () => {
             <span className="hidden sm:inline">Agents</span>
             <span className="sm:hidden">Agents</span>
           </TabsTrigger>
-          <TabsTrigger value="dealers" className="flex items-center gap-2">
+          <TabsTrigger value="brokers" className="flex items-center gap-2">
             <Building className="h-4 w-4" />
-            <span className="hidden sm:inline">Dealers</span>
-            <span className="sm:hidden">Dealers</span>
+            <span className="hidden sm:inline">Brokers</span>
+            <span className="sm:hidden">Brokers</span>
           </TabsTrigger>
           <TabsTrigger value="companies" className="flex items-center gap-2">
             <Building2 className="h-4 w-4" />
@@ -345,9 +345,9 @@ const AdminDashboard = () => {
           </div>
         </TabsContent>
 
-        <TabsContent value="dealers" className="space-y-4">
+        <TabsContent value="brokers" className="space-y-4">
           <div className="grid gap-4">
-            {dealerProfiles.map((profile) => (
+            {brokerProfiles.map((profile) => (
               <Card key={profile.user_id}>
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -386,8 +386,8 @@ const AdminDashboard = () => {
                           [profile.user_id]: e.target.value
                         }))}
                       />
-                      <Button onClick={() => handleVerifyDealer(profile.user_id)}>
-                        Verify Dealer
+                      <Button onClick={() => handleVerifyBroker(profile.user_id)}>
+                        Verify Broker
                       </Button>
                     </div>
                   )}
